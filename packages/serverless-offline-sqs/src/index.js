@@ -47,9 +47,8 @@ class ServerlessOfflineSQS {
     setLog((...args) => serverless.cli.log(...args));
 
     this.hooks = {
-      'offline:start:init': this.start.bind(this),
       'offline:start:ready': this.ready.bind(this),
-      'offline:start': this._startWithExplicitEnd.bind(this),
+      'offline:start': this.start.bind(this),
       'offline:start:end': this.end.bind(this)
     };
   }
